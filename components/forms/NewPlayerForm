@@ -1,0 +1,46 @@
+import Router, { useRouter } from "next/router";
+import React, { useEffect, useState } from 'react';
+import { createPlayer, updatePlayer } from "../../api/playerData";
+import { useAuth } from "../../utils/context/authContext";
+
+const initialState = {
+  first_name: '',
+  last_name: '',
+  position: '',
+  number: '',
+  nickname: '',
+  image: '',
+  firebaseKey: '',
+};
+
+function NewPlayerForm({ obj }) {
+  const [formInput, setFormInput] = useState(initialState);
+  const router = useRouter();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (obj.firebaseKey) {
+    updatePlayer(formInput)
+      .then(() => Router.push('/roster'));
+  } else {
+    const payload = { ...formInput, uid: userInfo.uid };
+    createPlayer(payload.then(() => {
+      Router.push
+    }))
+  }
+}
+export default NewPlayerForm
