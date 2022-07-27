@@ -1,9 +1,8 @@
 import React from 'react';
+import NewPlayerForm from '../../components/forms/NewPlayerForm';
 
-export default function NewPlayerForm() {
+export default function New() {
   return (
-    <div>
-      <h1>Add New Player</h1>
-    </div>
+    <NewPlayerForm />
   );
 }
