@@ -11,32 +11,31 @@ export default function PlayerCard({ playerObj, onUpdate }) {
     }
   };
   return (
-    <>
-      <Card style={{ width: '18rem', margin: '10px' }}>
-        <Card.Img variant="top" src={playerObj.image} alt={playerObj.name} style={{ height: '400px' }} />
-        <Card.Body>
-          <Card.Title>{playerObj.first_name} {playerObj.last_name}</Card.Title>
-          <p>Position: {playerObj.position}</p>
-          <p className="card-text bold">{playerObj.nickname}</p>
-          <Link href={`/player/${playerObj.firebaseKey}`} passHref>
-            <Button variant="primary" className="m-2">VIEW</Button>
-          </Link>
-          <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
-            <Button variant="info">EDIT</Button>
-          </Link>
+    <Card style={{ width: '25rem', margin: '10px' }}>
+      <Card.Body>
+        <div>Name: {playerObj.first_name} {playerObj.last_name}</div>
+        <div>Position: {playerObj.position}</div>
+        <div>Nickname: {playerObj.nickname}</div>
+        <Card.Img variant="top" src={playerObj.imageURL} alt={playerObj.first_name} style={{ height: '400px' }} />
+        <Link href={`/player/${playerObj.firebaseKey}`} passHref>
+          <Button variant="primary" className="m-2">VIEW</Button>
+        </Link>
+        <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
+          <Button variant="info">EDIT</Button>
+        </Link>
+        <Link href="/" passHref>
           <Button variant="danger" onClick={deleteThisPlayer} className="m-2">
             DELETE
           </Button>
-        </Card.Body>
-      </Card>
-    </>
+        </Link>
+      </Card.Body>
+    </Card>
   );
 }
 
 PlayerCard.propTypes = {
   playerObj: PropTypes.shape({
-    name: PropTypes.string,
-    image: PropTypes.string,
+    imageURL: PropTypes.string,
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     position: PropTypes.string,
