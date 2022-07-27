@@ -12,14 +12,15 @@ const initialState = {
   last_name: '',
   position: '',
   nickname: '',
-  image: '',
+  imageURL: '',
   firebaseKey: '',
 };
 
 export default function NewPlayerForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  const { user } = useAuth();
   const router = useRouter();
+
+  const { user } = useAuth();
 
   useEffect(() => {
     if (obj.firebaseKey)setFormInput(obj);
