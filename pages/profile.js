@@ -9,6 +9,9 @@ export default function Profile() {
   console.warn(user);
   return (
     <div>
+      <h1>
+        PHANTOM FARMER
+      </h1>
       <User
         image={user.photoURL}
         email={user.email}
