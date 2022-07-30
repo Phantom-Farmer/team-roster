@@ -13,6 +13,7 @@ const initialState = {
   position: '',
   nickname: '',
   imageURL: '',
+  number: '',
   firebaseKey: '',
 };
 
@@ -64,6 +65,18 @@ export default function NewPlayerForm({ obj }) {
       <FloatingLabel controlId="floatingInput5" label="Player Image" className="mb-3">
         <Form.Control type="url" placeholder="Enter an image url" name="imageURL" value={formInput.imageURL} onChange={handleChange} required />
       </FloatingLabel>
+      <FloatingLabel controlId="floatingInput6" label="number" className="mb-3">
+        <Form.Control type="text" placeholder="Number" name="number" value={formInput.number} onChange={handleChange} required />
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingInput7" label="height" className="mb-3">
+        <Form.Control type="text" placeholder="Height" name="height" value={formInput.height} onChange={handleChange} required />
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingInput8" label="weight" className="mb-3">
+        <Form.Control type="text" placeholder="Weight" name="weight" value={formInput.weight} onChange={handleChange} required />
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingInput9" label="specialty" className="mb-3">
+        <Form.Control type="text" placeholder="Specialty" name="specialty" value={formInput.specialty} onChange={handleChange} required />
+      </FloatingLabel>
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Player</Button>
     </Form>
   );
@@ -76,6 +89,7 @@ NewPlayerForm.propTypes = {
     position: PropTypes.string,
     nickname: PropTypes.string,
     imageURL: PropTypes.string,
+    number: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };
