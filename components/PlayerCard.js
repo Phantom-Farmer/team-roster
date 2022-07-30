@@ -11,12 +11,12 @@ export default function PlayerCard({ playerObj, onUpdate }) {
     }
   };
   return (
-    <Card style={{ width: '25rem', margin: '10px' }}>
+    <Card style={{ width: '18rem', margin: '5px' }}>
       <Card.Body>
         <div>Name: {playerObj.first_name} {playerObj.last_name}</div>
         <div>Position: {playerObj.position}</div>
         <div>Nickname: {playerObj.nickname}</div>
-        <Card.Img variant="top" src={playerObj.imageURL} alt={playerObj.first_name} style={{ height: '400px' }} />
+        <Card.Img variant="top" src={playerObj.imageURL} alt={playerObj.first_name} style={{ height: '200px' }} />
         <Link href={`/player/${playerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>

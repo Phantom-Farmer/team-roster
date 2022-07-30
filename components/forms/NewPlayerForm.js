@@ -12,14 +12,15 @@ const initialState = {
   last_name: '',
   position: '',
   nickname: '',
-  image: '',
+  imageURL: '',
   firebaseKey: '',
 };
 
 export default function NewPlayerForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  const { user } = useAuth();
   const router = useRouter();
+
+  const { user } = useAuth();
 
   useEffect(() => {
     if (obj.firebaseKey)setFormInput(obj);
@@ -47,7 +48,7 @@ export default function NewPlayerForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Player</h2>
+      <h2 className="text-black mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Player</h2>
       <FloatingLabel controlId="floatingInput2" label="First Name" className="mb-3">
         <Form.Control type="text" placeholder="First Name" name="first_name" value={formInput.first_name} onChange={handleChange} required />
       </FloatingLabel>
