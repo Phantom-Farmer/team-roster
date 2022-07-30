@@ -15,15 +15,14 @@ export default function PlayerCard({ playerObj, onUpdate }) {
       <Card.Body>
         <div>Name: {playerObj.first_name} {playerObj.last_name}</div>
         <div>Position: {playerObj.position}</div>
-        <div>Nickname: {playerObj.nickname}</div>
         <Card.Img variant="top" src={playerObj.imageURL} alt={playerObj.first_name} style={{ height: '200px' }} />
-        <Link href={`/player/${playerObj.firebaseKey}`} passHref>
+        <Link href={`/player/view/${playerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
         <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Link href="/" passHref>
+        <Link href="/roster" passHref>
           <Button variant="danger" onClick={deleteThisPlayer} className="m-2">
             DELETE
           </Button>
